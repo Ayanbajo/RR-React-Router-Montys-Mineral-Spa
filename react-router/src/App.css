@@ -9,6 +9,7 @@
 .App h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   margin-top: 0;
+  
 }
 
 .title {
@@ -35,6 +36,7 @@ li:hover {
 
 .homepage {
   padding-top: 50px;
+  color: white;
 }
 
 .App-header {
