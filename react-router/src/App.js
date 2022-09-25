@@ -3,7 +3,12 @@ import './App.css';
 import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
-  
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
+import Signup from "./components/signupmodal"
+import ControlledCarousel from './components/Carousel';
+
+ 
   function App() {
   
     const packages = ['Activate your Crystals', 
@@ -15,23 +20,31 @@ import Packages from './components/Packages'
       return (
         <div className="App">
           <Router>
-              <header>
-                <h1 className='title'>Welcome to Monty's Mineral Spa</h1>
-                  <div className="navBar">
-                      <ul>
-                        <li>
-                        <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                        <Link to="/about">About Us</Link>
-                        </li>
-                        <li>
-                        <Link to="/packages">Our Packages</Link>
-                        </li>
-                      </ul>
-                  </div>
-              </header>         
+          <Container>
+                  <Nav defaultActiveKey="/" variant="tabs" fill>
+                      <Nav.Item>
+                          <Nav.Link href="/"> 
+                              <Link to="/">Home</Link>
+                          </Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item >
+                          <Nav.Link eventKey={"aboutPage"}> 
+                              <Link to="/about">About Us</Link>
+                          </Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item >
+                          <Nav.Link eventKey={"packagesPage"}> 
+                              <Link to="/packages">Our Packages</Link> 
+                          </Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Signup />
+                      </Nav.Item>
+                  </Nav>
+          </Container>
+
           <div className="display">
+            <ControlledCarousel />
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
